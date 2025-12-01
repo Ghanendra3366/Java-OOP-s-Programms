@@ -1,4 +1,3 @@
-package Elementary_Coding1;
 
 
 //Return last digit of the given number.
