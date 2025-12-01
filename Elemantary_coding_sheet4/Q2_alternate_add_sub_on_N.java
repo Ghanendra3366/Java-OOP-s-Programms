@@ -18,25 +18,32 @@ package Elementary_Coding_Sheet_4;
 //The function prototype should be as below int AddSub(int N, int opt);
 
 import java.util.*;
+
 public class Q2_alternate_add_sub_on_N {
 
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		int n = input.nextInt();
-		int opt = input.nextInt();
-		
-		int res = n;
+	public static int AddSub(int N, int opt) {
+		int result = N;
 		boolean add = (opt == 2);
-		for(int i = n - 1 ; i >= 1 ; i--) {
-			if(add) {
-				res += i;
-			}else {
-				res -= i;
+		
+		for (int i = N - 1; i >= 1; i--) {
+			if (add) {
+				result += i;
+			} else {
+				result -= i;
 			}
 			add = !add;
 		}
-		System.out.print(res);
+		
+		return result;
+	}
 
+	public static void main(String[] args) {
+		try (Scanner input = new Scanner(System.in)) {
+			int n = input.nextInt();
+			int opt = input.nextInt();
+			
+			System.out.print(AddSub(n, opt));
+		}
 	}
 
 }
