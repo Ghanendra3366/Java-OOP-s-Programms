@@ -1,0 +1,457 @@
+📘 Analysis of Algorithms — Complete Master Notes
+1. Introduction to Analysis of Algorithms
+
+Analysis of Algorithms computer science का fundamental topic है जिसमें algorithms की performance और efficiency evaluate की जाती है।
+
+Efficiency को दो मुख्य factors से measure किया जाता है:
+
+Time Complexity → Algorithm को run होने में कितना समय लगता है
+
+Space Complexity → Algorithm को कितनी memory चाहिए
+
+Example
+
+अगर दो algorithms same problem solve करते हैं:
+
+Algorithm A → 1 second
+
+Algorithm B → 5 seconds
+
+तो Algorithm A ज्यादा efficient है।
+
+2. Why Analysis of Algorithms is Important
+
+Software design में कई चीजें important होती हैं:
+
+User-friendliness
+
+Security
+
+Maintainability
+
+Modularity
+
+लेकिन इन सबको achieve करने के लिए performance जरूरी है.
+
+Algorithm analysis के main goals
+
+Large input behavior predict करना
+
+Algorithms compare करना
+
+Efficient algorithm choose करना
+
+Hardware independent analysis करना
+
+Example
+Binary Search vs Linear Search
+
+Linear search → O(n)
+
+Binary search → O(log n)
+
+Large data में binary search ज्यादा efficient है.
+
+3. Order of Growth
+
+Order of growth बताता है कि input size बढ़ने पर algorithm का time कैसे बढ़ेगा.
+
+Example
+
+f(n) = 1000
+g(n) = n + 1
+
+n बड़ा होने पर g(n) तेजी से बढ़ेगा।
+
+Order of Growth निकालने का rule
+
+Lower order terms ignore करो
+
+Constants ignore करो
+
+Example
+
+f(n) = 4n² + 3n + 100
+
+Steps:
+
+Lower terms remove → 4n²
+Constant remove → n²
+
+✔ Order of growth = n²
+
+Growth Comparison
+
+c < log log n < log n < √n < n < n log n < n² < n³ < 2ⁿ < n!
+
+4. Asymptotic Analysis
+
+Asymptotic analysis algorithm performance को input size के basis पर analyze करता है.
+
+इसमें machine speed ignore की जाती है।
+
+Example
+
+Search problem
+
+Algorithms:
+
+Linear Search
+
+Binary Search
+
+Small inputs पर linear search fast हो सकता है
+लेकिन large inputs पर binary search better हो जाता है.
+
+Advantages
+
+Machine independent analysis
+
+Large inputs के लिए accurate
+
+Limitations
+
+Constant factors ignore करता है
+
+Small inputs के लिए हमेशा accurate नहीं
+
+5. Worst Case, Average Case, Best Case
+Worst Case
+
+Maximum time required.
+
+Example
+Linear search में element list में नहीं हो.
+
+✔ Most commonly used analysis
+
+Best Case
+
+Minimum time required.
+
+Example
+Element first position पर हो.
+
+✔ Rarely used.
+
+Average Case
+
+Average time across all inputs.
+
+✔ Difficult to calculate.
+
+6. Time Complexity
+
+Time complexity बताती है algorithm कितनी operations perform करता है.
+
+Example
+Loop n times run करे → O(n)
+
+Time complexity measure करने के लिए primitive operations count किए जाते हैं.
+
+7. Common Time Complexity Classes
+Complexity	Meaning	Example
+O(1)	Constant	Print statement
+O(log n)	Logarithmic	Binary search
+O(n)	Linear	Linear search
+O(n log n)	Superlinear	Merge sort
+O(n²)	Quadratic	Bubble sort
+O(n³)	Cubic	Matrix multiplication
+O(2ⁿ)	Exponential	Tower of Hanoi
+O(n!)	Factorial	Permutations
+
+Algorithms का runtime input size के साथ rapidly बढ़ सकता है.
+
+8. Big-O Notation
+
+Big-O notation algorithm का upper bound बताता है.
+
+Definition:
+
+f(n) = O(g(n))
+
+अगर
+
+f(n) ≤ C × g(n)
+
+for n ≥ n₀
+
+तो f(n) = O(g(n))
+
+Big-O निकालने का quick rule
+
+Highest order term लो
+
+Constant remove करो
+
+Example
+
+f(n) = 3n² + 2n + 100
+
+✔ Big-O = O(n²)
+
+Big-O Properties
+
+Reflexivity
+
+Transitivity
+
+Symmetry (कुछ cases में)
+
+9. Big Omega (Ω) Notation
+
+Big Omega algorithm का lower bound बताता है.
+
+Definition
+
+f(n) ≥ C × g(n)
+
+Example
+
+Best case time of linear search → Ω(1)
+
+10. Big Theta (Θ) Notation
+
+Theta notation exact bound बताती है.
+
+Definition
+
+C1 g(n) ≤ f(n) ≤ C2 g(n)
+
+Example
+
+Merge sort
+
+Θ(n log n)
+
+11. Space Complexity
+
+Space complexity algorithm की memory usage बताती है.
+
+Types
+
+Input space
+
+Auxiliary space
+
+Example
+
+Array size n → O(n)
+Matrix n×n → O(n²)
+
+12. Analysis of Loops
+Single Loop
+for(i=1;i<=n;i++)
+
+Time complexity
+
+O(n)
+
+Nested Loop
+for(i=1;i<=n;i++)
+ for(j=1;j<=n;j++)
+
+Time complexity
+
+O(n²)
+
+Logarithmic Loop
+for(i=1;i<n;i*=2)
+
+Time complexity
+
+O(log n)
+
+Consecutive loops
+
+Time complexity add होती है.
+
+Example
+
+O(n) + O(m) = O(n+m)
+
+13. Recursive Algorithm Analysis
+
+Recursive algorithm में time complexity recurrence relation से मिलती है.
+
+Example
+
+Merge sort
+
+T(n) = 2T(n/2) + cn
+
+Recurrence solve करने के methods
+
+Substitution Method
+
+Recurrence Tree
+
+Master Theorem
+
+Example
+
+T(n) = 3T(n-1)
+
+Solve करने पर
+
+T(n) = 3ⁿ
+
+14. Amortized Analysis
+
+Amortized analysis operations की average cost over sequence analyze करता है.
+
+Example
+
+Dynamic array insertion
+
+Most insertions → O(1)
+Resizing → O(n)
+
+लेकिन amortized cost
+
+✔ O(1)
+
+Techniques
+
+Aggregate Method
+
+Accounting Method
+
+Potential Method
+
+15. Example: Dynamic Array Resizing
+
+Steps
+
+Array full हो जाए
+
+नया array allocate करो
+
+Data copy करो
+
+Old array delete करो
+
+Worst case → O(n)
+
+लेकिन amortized insertion
+
+✔ O(1)
+
+16. Amortized Analysis Example (Red-Black Tree)
+
+Potential function φ define करते हैं:
+
+g(n) values assign करके tree की potential calculate होती है.
+
+Amortized cost formula
+
+Amortized cost = actual cost + change in potential
+
+17. Complexity Classes
+
+Computational problems को classes में divide किया जाता है.
+
+Purpose
+
+Efficient problems identify करना
+
+Hard problems classify करना
+
+18. P Class
+
+Polynomial time में solve होने वाले problems.
+
+Time complexity
+
+O(nᵏ)
+
+Examples
+
+Merge sort
+
+GCD
+
+Maximum matching
+
+✔ Efficient problems
+
+19. NP Class
+
+NP = Non-deterministic Polynomial Time
+
+Properties
+
+Solution verify करना easy
+
+Solution find करना difficult
+
+Example
+
+SAT problem
+
+Graph coloring
+
+Hamiltonian path
+
+20. Co-NP Class
+
+NP problems का complement.
+
+Meaning
+
+अगर answer NO है
+तो proof verify किया जा सकता है.
+
+Example
+
+Prime number checking
+
+21. NP-Hard Problems
+
+NP-Hard problems:
+
+NP से भी difficult
+
+Polynomial solution नहीं पता
+
+Examples
+
+Traveling Salesman Problem
+
+22. NP-Complete Problems
+
+NP-Complete problems:
+
+NP में होते हैं
+
+NP-Hard भी होते हैं
+
+Example
+
+SAT problem
+
+अगर किसी NP-complete problem का polynomial solution मिल जाए
+
+✔ सभी NP problems solve हो सकती हैं.
+
+⭐ Final Summary
+
+Analysis of Algorithms में मुख्य concepts:
+
+Algorithm performance evaluation
+
+Time complexity
+
+Space complexity
+
+Asymptotic analysis
+
+Big-O, Ω, Θ notations
+
+Loop analysis
+
+Recursion analysis
+
+Amortized analysis
+
+Complexity classes (P, NP, NP-Complete)
